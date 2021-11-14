@@ -3,6 +3,8 @@
 
 #pragma once
 
+#pragma warning(disable:4201) // nonstandard extension used: nameless struct/union
+
 // Dependency:
 #include "../detail/type_mat3x3.hpp"
 #include "../detail/type_mat4x4.hpp"
