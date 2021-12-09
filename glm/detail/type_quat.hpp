@@ -3,7 +3,13 @@
 
 #pragma once
 
-#if __clang__             
+#if defined(__clang__)
+#pragma warning(disable:4201) // nonstandard extension used: nameless struct/union
+#pragma GCC diagnostic ignored "-Wgnu-anonymous-struct"
+#pragma GCC diagnostic ignored "-Wnested-anon-types"
+#endif
+
+#if defined(_MSC_VER)
 #pragma warning(disable:4201) // nonstandard extension used: nameless struct/union
 #endif
 
