@@ -3,7 +3,9 @@
 
 #pragma once
 
+#if __clang__             
 #pragma warning(disable:4201) // nonstandard extension used: nameless struct/union
+#endif
 
 // Dependency:
 #include "../detail/type_mat3x3.hpp"
