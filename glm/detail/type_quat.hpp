@@ -3,10 +3,10 @@
 
 #pragma once
 
-#if defined(__clang__)
-#pragma warning(disable:4201) // nonstandard extension used: nameless struct/union
-#pragma GCC diagnostic ignored "-Wgnu-anonymous-struct"
-#pragma GCC diagnostic ignored "-Wnested-anon-types"
+#if GLM_COMPILER & GLM_COMPILER_CLANG
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
+#pragma clang diagnostic ignored "-Wnested-anon-types"
 #endif
 
 #if defined(_MSC_VER)
@@ -199,3 +199,10 @@ namespace glm
 #ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_quat.inl"
 #endif//GLM_EXTERNAL_TEMPLATE
+
+#if GLM_COMPILER & GLM_COMPILER_GCC
+#pragma GCC diagnostic pop
+#endif
+#if GLM_COMPILER & GLM_COMPILER_CLANG
+#pragma clang diagnostic pop
+#endif

@@ -2,6 +2,11 @@
 
 #include "setup.hpp"
 
+#if GLM_COMPILER & GLM_COMPILER_GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#endif
+
 namespace glm
 {
 	/// Qualify GLM types in term of alignment (packed, aligned) and precision in term of ULPs (lowp, mediump, highp)
@@ -228,3 +233,7 @@ namespace detail
 	};
 }//namespace detail
 }//namespace glm
+
+#if GLM_COMPILER & GLM_COMPILER_GCC
+#pragma GCC diagnostic pop
+#endif

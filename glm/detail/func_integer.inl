@@ -7,6 +7,11 @@
 #endif//(GLM_ARCH & GLM_ARCH_X86 && GLM_COMPILER & GLM_COMPILER_VC)
 #include <limits>
 
+#if GLM_COMPILER & GLM_COMPILER_GCC
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wconversion"
+#endif
+
 #if !GLM_HAS_EXTENDED_INTEGER_TYPE
 #	if GLM_COMPILER & GLM_COMPILER_GCC
 #		pragma GCC diagnostic ignored "-Wlong-long"
@@ -370,3 +375,6 @@ namespace detail
 #	include "func_integer_simd.inl"
 #endif
 
+#if GLM_COMPILER & GLM_COMPILER_GCC
+#pragma GCC diagnostic pop
+#endif
